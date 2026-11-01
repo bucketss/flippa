@@ -1,0 +1,24 @@
+[package]
+name = "flippa"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+eframe = { version = "0.37.0", default-features = false, features = ["wgpu", "default_fonts"] }
+rfd = "0.17.2"
+image = { version = "0.25", default-features = false, features = ["bmp", "png"] }
+wgpu = "30"
+pollster = "1"
+bytemuck = { version = "1", features = ["derive"] }
+glam = "0.33"
+rayon = "1"
+fast_image_resize = "6"
+anyhow = "1"
+regex = "1"
+
+[profile.dev.package."*"]
+opt-level = 3
+
+[profile.release]
+lto = true
+strip = true
