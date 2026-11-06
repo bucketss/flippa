@@ -20,11 +20,7 @@ pub struct Settings {
 
 pub fn default_suffix(axes: &[usize]) -> String {
     let s: String = axes.iter().map(|&a| ['x', 'y', 'z'][a]).collect();
-    match s.as_str() {
-        "y" => "_mirror".into(),
-        "z" => "_upsidedown".into(),
-        _ => format!("_flip{s}"),
-    }
+    format!("_flip_{s}")
 }
 
 fn rev_words(src: &str) -> String {
